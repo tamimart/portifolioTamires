@@ -37,6 +37,8 @@ Abaixo está o código que carrega as primeiras 5 linhas da tabela de microdados
 
 ```{r}
 
+bigrquery::bq_auth("tamiresmartins.fln@gmail.com")
+
 conexao <- dbConnect(
   bigquery(),
   project = "basedosdados",
