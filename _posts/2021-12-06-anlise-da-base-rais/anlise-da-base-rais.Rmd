@@ -21,7 +21,7 @@ Esse é o meu **primeiro projeto** no [portfólio]{.ul}.
 
 Formatar um texto como código: usethis::use_git()
 
-Como colocar um link? [YouTube](<https://www.youtube.com/>)
+Como colocar um link? [YouTube](https://www.youtube.com/)
 
 Lista:
 
@@ -29,9 +29,7 @@ Lista:
 
 2.  Segundo
 
-    1.  
-
-        \-
+    1.  \-
 
         -   
 
