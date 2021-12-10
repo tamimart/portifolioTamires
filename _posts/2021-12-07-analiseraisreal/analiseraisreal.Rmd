@@ -35,7 +35,7 @@ library(dplyr)
 
 Abaixo está o código que carrega as primeiras 5 linhas da tabela de microdados.
 
-```{r}
+```{r, eval = FALSE}
 
 bigrquery::bq_auth("tamiresmartins.fln@gmail.com")
 
@@ -56,7 +56,7 @@ knitr::kable(primeiras_cinco_linhas)
 
 Vamos fazer a mesma coisa usando o pipe
 
-```{r echo=TRUE, message=FALSE, warning=FALSE}
+```{r echo=TRUE, message=FALSE, warning=FALSE, eval = FALSE}
 
 primeiras_cinco_linhas_compipe <- tbl(conexao, "microdados_vinculos") %>%
 select(everything()) %>%
@@ -68,7 +68,7 @@ collect()
 
 A base de dados que queremos analisar aqui é a base de pessoas que (potencialmente) trabalham com ciência de dados. Existe um código Brasileiro de Ocupações (CBO), que tem um cadastro de todas as ocupações formais no Brasil. Vamos pegar alguns códigos que são relacionados a ciência de dados e filtrar a base da RAIS para obter os dados dessas pessoas. Nessa analise usarias as primeiras 5 mil linhas, por medo do pc não aguentar kkkkk.
 
-```{r echo=TRUE, message=FALSE, warning=FALSE}
+```{r echo=TRUE, message=FALSE, warning=FALSE, eval = FALSE}
 
 codigos_cbo <- c(
   "252515", "252525", "211110",
@@ -102,11 +102,16 @@ tabela_microdados_vinculos <- collect(microdados_tbl)
 
 
 
-# Quanto o valor médio varia no tempo?
+### Quanto o valor do salário médio varia no tempo?
+
 ```{r echo=TRUE, message=FALSE, warning=FALSE}
 
 library(ggplot2)
 library(tidyverse)
+
+tabela_microdados_vinculos <- readRDS("tabela_microdados_vinculos.rds")
+
+
 
 tabela_medias <- tabela_microdados_vinculos %>% 
   group_by(ano) %>%
@@ -130,10 +135,132 @@ library(knitr)
 tabela_medias %>% 
   kable()
 
-
-readr::write_rds(tabela_microdados_vinculos,
-                 "tabela_microdados_vinculos.rds",
-                 compress = "xz")
+saveRDS(tabela_microdados_vinculos, "tabela_microdados_vinculos.rds")
 ```
 
+### Quanto o valor do salário médio varia regionalmente?
+
+```{r}
+
+tabela_media_uf <- tabela_microdados_vinculos %>% 
+  group_by(sigla_uf) %>%
+  summarise(media_salario_uf = mean(valor_remuneracao_media))
+
+
+```
+
+Essa visualização a principio é melhor em tabela.
+
+```{r}
+knitr::kable(tabela_media_uf)
+```
+
+Agora olhando em gráfico:
+
+```{r}
+tabela_media_uf %>% 
+  ggplot(aes(x = sigla_uf, y = media_salario_uf)) +
+  geom_col()
+```
+Esse gráfico é legal até colocar na análise explicativa! Df e RJ aparentemente estão muito acima dos demais estados, conforme destaca o gráfico abaixo.
+
+```{r}
+
+
+library(forcats)
+
+tabela_media_uf %>%
+  mutate(sigla_uf = fct_reorder(sigla_uf, media_salario_uf)) %>% # vira fator e reordena de acordo com media
+  arrange(sigla_uf) %>%
+  ggplot(aes(y= sigla_uf, x = media_salario_uf)) +
+  geom_col() +
+  labs(y = "Unidade da Federação",
+       x = "Média Salarial (R$)") +
+  theme_minimal()
+
+
+```
+Será que essa mesma conclusão permanece com a mediana como medida resumo dos salarios?
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+
+tabela_mediana_uf <- tabela_microdados_vinculos %>% 
+  group_by(sigla_uf) %>% 
+  summarise(mediana = median(valor_remuneracao_media)) %>%
+  mutate(sigla_uf = fct_reorder(sigla_uf, mediana)) 
+  
+  
+  tabela_mediana_uf %>%  
+  ggplot(aes(x = mediana, y = sigla_uf)) +
+  geom_col() +
+  theme_bw()
+
+
+tabela_media_uf
+
+```
+
+### Os salários variam por sexo?
+
+```{r}
+
+tabela_resumo_sexo <- tabela_microdados_vinculos %>% 
+  group_by(sexo) %>% 
+  summarise(media = mean(valor_remuneracao_media),
+            mediana = median(valor_remuneracao_media))
+
+tabela_resumo_sexo %>% 
+  knitr::kable()
+
+
+```
+
+
+### Os salários variam por etnia?
+
+```{r}
+tabela_resumo_raca <- tabela_microdados_vinculos %>% 
+  group_by(raca_cor) %>% 
+  summarise(media = mean(valor_remuneracao_media),
+            mediana = median(valor_remuneracao_media))
+
+tabela_resumo_raca %>% 
+  knitr::kable()
+```
+
+
+# Tabela de resumo
+
+```{r}
+tabela_resumo_raca_sexo <-tabela_microdados_vinculos %>% 
+  group_by(raca_cor, sexo) %>% 
+  summarise(media = mean(valor_remuneracao_media),
+            mediana = median(valor_remuneracao_media))
+
+tabela_resumo_raca_sexo %>% 
+  knitr::kable()
+
+
+ggplot(tabela_resumo_raca_sexo) + 
+  aes(x = raca_cor, y = media, fill = sexo) + 
+  geom_col(position = "dodge") + 
+  theme_classic() + 
+  labs(x = "Etnia", y = "Média Salarial R$")
+
+```
+
+### Os salários variam por idade?
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+
+tabela_resumo_idade <- tabela_microdados_vinculos %>% 
+  group_by(idade) %>% 
+  summarise(media = mean(valor_remuneracao_media))
+  
+ tabela_resumo_idade %>%  
+  ggplot(aes(x=idade, y=media)) +
+  geom_col() +
+  theme_bw()
+  
+```
 
