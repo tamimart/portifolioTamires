@@ -132,6 +132,10 @@ library(knitr)
 tabela_medias %>% 
   kable()
 
+
+readr::write_rds(tabela_microdados_vinculos,
+                 "tabela_microdados_vinculos.rds",
+                 compress = "xz")
 ```
 
 
