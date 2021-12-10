@@ -193,7 +193,9 @@ tabela_mediana_uf <- tabela_microdados_vinculos %>%
   tabela_mediana_uf %>%  
   ggplot(aes(x = mediana, y = sigla_uf)) +
   geom_col() +
-  theme_bw()
+   labs(y = "Estado",
+       x = "Mediana Salarial (R$)") +
+  theme_minimal()
 
 
 tabela_media_uf
@@ -258,9 +260,10 @@ tabela_resumo_idade <- tabela_microdados_vinculos %>%
   summarise(media = mean(valor_remuneracao_media))
   
  tabela_resumo_idade %>%  
-  ggplot(aes(x=idade, y=media)) +
+  ggplot(aes(x= "Idade", y= "Média Salarial (R$)")) +
   geom_col() +
   theme_bw()
   
 ```
+
 

@@ -3,6 +3,7 @@ title: "Portfolio Tamires MM"
 description: |
   Portfolio Tamires MM
 output_dir: "docs"
+theme: tema_live.css
 navbar:
   right:
     - text: "Home"
