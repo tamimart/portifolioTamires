@@ -2594,11 +2594,37 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <p>Vamos fazer a mesma coisa usando o pipe</p>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>primeiras_cinco_linhas_compipe</span> <span class='op'>&lt;-</span> <span class='fu'>tbl</span><span class='op'>(</span><span class='va'>conexao</span>, <span class='st'>"microdados_vinculos"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+<span class='fu'>select</span><span class='op'>(</span><span class='fu'>everything</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='fl'>5</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+<span class='fu'>collect</span><span class='op'>(</span><span class='op'>)</span>
 
+<span class='co'># atalho pipe = ctrll + shift + m</span>
+</code></pre>
+</div>
 </div>
 <p>A base de dados que queremos analisar aqui é a base de pessoas que (potencialmente) trabalham com ciência de dados. Existe um código Brasileiro de Ocupações (CBO), que tem um cadastro de todas as ocupações formais no Brasil. Vamos pegar alguns códigos que são relacionados a ciência de dados e filtrar a base da RAIS para obter os dados dessas pessoas. Nessa analise usarias as primeiras 5 mil linhas, por medo do pc não aguentar kkkkk.</p>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>codigos_cbo</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>
+  <span class='st'>"252515"</span>, <span class='st'>"252525"</span>, <span class='st'>"211110"</span>,
+  <span class='co'># pesquisa/cientista </span>
+  <span class='st'>"211205"</span>,<span class='st'>"411035"</span>, 
+  <span class='st'>"211210"</span>, <span class='st'>"131120"</span>,<span class='st'>"211215"</span>
+  <span class='co'># ocupações estatísticas </span>
+<span class='op'>)</span>
 
+<span class='va'>microdados_tbl</span> <span class='op'>&lt;-</span> <span class='fu'>tbl</span><span class='op'>(</span><span class='va'>conexao</span>, <span class='st'>"microdados_vinculos"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>select</span><span class='op'>(</span><span class='fu'>everything</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>ano</span> <span class='op'>&gt;=</span> <span class='fl'>2013</span>,
+         <span class='va'>cbo_2002</span> <span class='op'><a href='https://rdrr.io/r/base/match.html'>%in%</a></span> <span class='va'>codigos_cbo</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+    <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='fl'>5000</span><span class='op'>)</span>
+
+
+<span class='va'>tabela_microdados_vinculos</span> <span class='op'>&lt;-</span> <span class='fu'>collect</span><span class='op'>(</span><span class='va'>microdados_tbl</span><span class='op'>)</span>
+</code></pre>
+</div>
 </div>
 <h2 id="perguntas-de-pesquisa">Perguntas de pesquisa</h2>
 <ul>
@@ -2613,10 +2639,32 @@ document.addEventListener('DOMContentLoaded', function() {
 </ul>
 <h1 id="quanto-o-valor-médio-varia-no-tempo">Quanto o valor médio varia no tempo?</h1>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
+
+<span class='va'>tabela_medias</span> <span class='op'>&lt;-</span> <span class='va'>tabela_microdados_vinculos</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>ano</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>media_salario <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>valor_remuneracao_media</span><span class='op'>)</span><span class='op'>)</span>
+
+
+
+<span class='va'>tabela_medias</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>ano</span>, y <span class='op'>=</span> <span class='va'>media_salario</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_x_continuous</a></span><span class='op'>(</span>breaks <span class='op'>=</span> <span class='fl'>2013</span><span class='op'>:</span><span class='fl'>2019</span><span class='op'>)</span>
+</code></pre>
+</div>
 <p><img src="analiseraisreal_files/figure-html5/unnamed-chunk-5-1.png" width="624" /></p>
 </div>
 <p>Agora vamos ver os números exatos:</p>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://yihui.org/knitr/'>knitr</a></span><span class='op'>)</span>
+
+<span class='va'>tabela_medias</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
 <table>
 <thead>
 <tr class="header">
@@ -2655,6 +2703,12 @@ document.addEventListener('DOMContentLoaded', function() {
 </tr>
 </tbody>
 </table>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>readr</span><span class='fu'>::</span><span class='fu'><a href='https://readr.tidyverse.org/reference/read_rds.html'>write_rds</a></span><span class='op'>(</span><span class='va'>tabela_microdados_vinculos</span>,
+                 <span class='st'>"tabela_microdados_vinculos.rds"</span>,
+                 compress <span class='op'>=</span> <span class='st'>"xz"</span><span class='op'>)</span>
+</code></pre>
+</div>
 </div>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->

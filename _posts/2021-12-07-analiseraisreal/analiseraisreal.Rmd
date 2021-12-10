@@ -56,7 +56,7 @@ knitr::kable(primeiras_cinco_linhas)
 
 Vamos fazer a mesma coisa usando o pipe
 
-```{r}
+```{r echo=TRUE, message=FALSE, warning=FALSE}
 
 primeiras_cinco_linhas_compipe <- tbl(conexao, "microdados_vinculos") %>%
 select(everything()) %>%
@@ -68,7 +68,7 @@ collect()
 
 A base de dados que queremos analisar aqui é a base de pessoas que (potencialmente) trabalham com ciência de dados. Existe um código Brasileiro de Ocupações (CBO), que tem um cadastro de todas as ocupações formais no Brasil. Vamos pegar alguns códigos que são relacionados a ciência de dados e filtrar a base da RAIS para obter os dados dessas pessoas. Nessa analise usarias as primeiras 5 mil linhas, por medo do pc não aguentar kkkkk.
 
-```{r}
+```{r echo=TRUE, message=FALSE, warning=FALSE}
 
 codigos_cbo <- c(
   "252515", "252525", "211110",
@@ -103,7 +103,7 @@ tabela_microdados_vinculos <- collect(microdados_tbl)
 
 
 # Quanto o valor médio varia no tempo?
-```{r}
+```{r echo=TRUE, message=FALSE, warning=FALSE}
 
 library(ggplot2)
 library(tidyverse)
@@ -123,7 +123,7 @@ tabela_medias %>% ggplot(aes(x = ano, y = media_salario)) +
 
 Agora vamos ver os números exatos:
 
-```{r}
+```{r echo=TRUE, message=FALSE, warning=FALSE}
 
 library(knitr)
 
