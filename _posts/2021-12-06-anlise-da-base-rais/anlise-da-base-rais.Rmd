@@ -3,8 +3,8 @@ title: "Estudando Rmarkdown"
 description:  Esse projeto foi feito na Semana Data Science na Prática - Curso-R.
 author:
   - name: Tamires Martins
-    url: https://example.com/norajones
-date: 2021-12-06
+    url: ttps://tamimart.github.io/portifolioTamires/
+date: 2021-12-10
 output:
   distill::distill_article:
   
