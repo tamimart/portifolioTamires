@@ -121,7 +121,10 @@ tabela_medias <- tabela_microdados_vinculos %>%
 
 tabela_medias %>% ggplot(aes(x = ano, y = media_salario)) +
   geom_col() +
-  scale_x_continuous(breaks = 2013:2019)
+  scale_x_continuous(breaks = 2013:2019) +
+  theme_classic() +
+  labs(x="Ano", y="Média Salarial (R$)")
+  
 
 
 ```
@@ -160,7 +163,10 @@ Agora olhando em gráfico:
 ```{r}
 tabela_media_uf %>% 
   ggplot(aes(x = sigla_uf, y = media_salario_uf)) +
-  geom_col()
+  geom_col() +
+  labs(x="Estado", y="Média Salarial (R$)") +
+  theme_classic()
+
 ```
 Esse gráfico é legal até colocar na análise explicativa! Df e RJ aparentemente estão muito acima dos demais estados, conforme destaca o gráfico abaixo.
 
@@ -176,7 +182,7 @@ tabela_media_uf %>%
   geom_col() +
   labs(y = "Unidade da Federação",
        x = "Média Salarial (R$)") +
-  theme_minimal()
+  theme_classic()
 
 
 ```
@@ -195,7 +201,7 @@ tabela_mediana_uf <- tabela_microdados_vinculos %>%
   geom_col() +
    labs(y = "Estado",
        x = "Mediana Salarial (R$)") +
-  theme_minimal()
+  theme_classic()
 
 
 tabela_media_uf
@@ -251,6 +257,15 @@ ggplot(tabela_resumo_raca_sexo) +
 
 ```
 
+Regressão linear
+
+```{r}
+
+lm(valor_remuneracao_media ~ sexo + raca_cor, data = tabela_microdados_vinculos)
+
+```
+
+
 ### Os salários variam por idade?
 
 ```{r echo=TRUE, message=FALSE, warning=FALSE}
@@ -260,9 +275,10 @@ tabela_resumo_idade <- tabela_microdados_vinculos %>%
   summarise(media = mean(valor_remuneracao_media))
   
  tabela_resumo_idade %>%  
-  ggplot(aes(x= "Idade", y= "Média Salarial (R$)")) +
+  ggplot(aes(x= idade, y= media)) +
   geom_col() +
-  theme_bw()
+   labs(x="Idade", y= "Média Salarial (R$)") +
+  theme_classic()
   
 ```
 
