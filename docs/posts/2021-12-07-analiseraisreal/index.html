@@ -20,26 +20,28 @@
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -48,9 +50,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
@@ -116,7 +118,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["analiseraisreal_files/anchor-4.2.2/anchor.min.js","analiseraisreal_files/bowser-1.9.3/bowser.min.js","analiseraisreal_files/distill-2.2.21/template.v2.js","analiseraisreal_files/figure-html5/unnamed-chunk-10-1.png","analiseraisreal_files/figure-html5/unnamed-chunk-11-1.png","analiseraisreal_files/figure-html5/unnamed-chunk-14-1.png","analiseraisreal_files/figure-html5/unnamed-chunk-15-1.png","analiseraisreal_files/figure-html5/unnamed-chunk-16-1.png","analiseraisreal_files/figure-html5/unnamed-chunk-5-1.png","analiseraisreal_files/figure-html5/unnamed-chunk-9-1.png","analiseraisreal_files/header-attrs-2.11/header-attrs.js","analiseraisreal_files/jquery-3.6.0/jquery-3.6.0.js","analiseraisreal_files/jquery-3.6.0/jquery-3.6.0.min.js","analiseraisreal_files/jquery-3.6.0/jquery-3.6.0.min.map","analiseraisreal_files/popper-2.6.0/popper.min.js","analiseraisreal_files/tippy-6.2.7/tippy-bundle.umd.min.js","analiseraisreal_files/tippy-6.2.7/tippy-light-border.css","analiseraisreal_files/tippy-6.2.7/tippy.css","analiseraisreal_files/tippy-6.2.7/tippy.umd.min.js","analiseraisreal_files/webcomponents-2.0.0/webcomponents.js","tema_live.css"]}
+  {"type":"character","attributes":{},"value":["analiseraisreal_files/anchor-4.2.2/anchor.min.js","analiseraisreal_files/bowser-1.9.3/bowser.min.js","analiseraisreal_files/distill-2.2.21/template.v2.js","analiseraisreal_files/figure-html5/unnamed-chunk-10-1.png","analiseraisreal_files/figure-html5/unnamed-chunk-11-1.png","analiseraisreal_files/figure-html5/unnamed-chunk-14-1.png","analiseraisreal_files/figure-html5/unnamed-chunk-15-1.png","analiseraisreal_files/figure-html5/unnamed-chunk-16-1.png","analiseraisreal_files/figure-html5/unnamed-chunk-16-2.png","analiseraisreal_files/figure-html5/unnamed-chunk-16-3.png","analiseraisreal_files/figure-html5/unnamed-chunk-16-4.png","analiseraisreal_files/figure-html5/unnamed-chunk-16-5.png","analiseraisreal_files/figure-html5/unnamed-chunk-16-6.png","analiseraisreal_files/figure-html5/unnamed-chunk-17-1.png","analiseraisreal_files/figure-html5/unnamed-chunk-5-1.png","analiseraisreal_files/figure-html5/unnamed-chunk-9-1.png","analiseraisreal_files/header-attrs-2.11/header-attrs.js","analiseraisreal_files/jquery-3.6.0/jquery-3.6.0.js","analiseraisreal_files/jquery-3.6.0/jquery-3.6.0.min.js","analiseraisreal_files/jquery-3.6.0/jquery-3.6.0.min.map","analiseraisreal_files/popper-2.6.0/popper.min.js","analiseraisreal_files/tippy-6.2.7/tippy-bundle.umd.min.js","analiseraisreal_files/tippy-6.2.7/tippy-light-border.css","analiseraisreal_files/tippy-6.2.7/tippy.css","analiseraisreal_files/tippy-6.2.7/tippy.umd.min.js","analiseraisreal_files/webcomponents-2.0.0/webcomponents.js","tema_live.css"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2132,28 +2134,28 @@ d-appendix {
 
 /* Optional: embed custom fonts here with `@import`          */
 /* This must remain at the top of this file.                 */
-@import url('https://fonts.googleapis.com/css2?family=Cardo');
-@import url('https://fonts.googleapis.com/css2?family=Alata');
-
+@import url('https://fonts.googleapis.com/css2?family=Lato');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat');
 
 html {
   /*-- Main font sizes --*/
   --title-size:      50px;
-  --body-size:       1.075rem;                   /* edited */
-  --code-size:       14px;
+  --body-size:       1.0rem;                     /* edited */
+  --code-size:       0.9rem;                     /* edited */
   --aside-size:      12px;
   --fig-cap-size:    13px;
   /*-- Main font colors --*/
   --title-color:     #000000;
   --heading-color:   rgba(0, 0, 0, 0.8);
-  --body-color:      rgba(0, 0, 0, 0.8);
+  --body-color:      #383838;                    /* edited */
   --aside-color:     rgba(0, 0, 0, 0.6);
   --fig-cap-color:   rgba(0, 0, 0, 0.6);
   /*-- Specify custom fonts ~~~ must be imported above   --*/
-  --heading-font:    'Alata', sans-serif;        /* edited */
-  --mono-font:       monospace;
-  --body-font:       'Cardo', serif;             /* edited */
-  --navbar-font:     'Alata', sans-serif;        /* edited */
+  --heading-font:    'Lato', sans-serif;         /* edited */
+  --mono-font:       'Fira Mono', monospace;     /* edited */
+  --body-font:       'Lato', sans-serif;         /* edited */
+  --navbar-font:     'Montserrat', sans-serif;   /* edited */
 }
 
 /*-- ARTICLE METADATA --*/
@@ -2174,54 +2176,53 @@ d-byline {
 d-appendix {
   --heading-size:    15px;
   --heading-color:   rgba(0, 0, 0, 0.65);
-  --text-size:       1.075rem;                   /* edited */
-  --text-color:      rgb(0, 0, 0);               /* edited */
+  --text-size:       0.8em;
+  --text-color:      rgba(0, 0, 0, 0.5);
 }
 
 /*-- WEBSITE HEADER + FOOTER --*/
 /* These properties only apply to Distill sites and blogs  */
 
 .distill-site-header {
-  --title-size:       18px;
-  --text-color:       #000;                     /* edited */
-  --text-size:        15px;
-  --hover-color:      #ff00ff;                  /* edited */
-  --bkgd-color:       #fff;                     /* edited */
+  --title-size:       20px;                      /* edited */
+  --text-color:       #FFFFFF;                   /* edited */
+  --text-size:        20px;                      /* edited */
+  --hover-color:      #383838;                   /* edited */
+  --bkgd-color:       rgba(7, 222, 59, 0.8);    /* edited */
 }
 
 .distill-site-footer {
-  --text-color:       rgba(255, 255, 255, 0.8);
+  --text-color:       rgba(7, 222, 59, 0.8);
   --text-size:        15px;
   --hover-color:      white;
   --bkgd-color:       #0F2E3D;
 }
 
+
 /*-- Additional custom styles --*/
 
-.categories li > a:hover {
-    color: #00ff00;
-    border-bottom: 1px #00ff00;
+.posts-list .metadata .publishedDate {
+    color: rgb(249, 83, 85);
 }
 
-p a:hover  {
-    color: #00ff00;
+d-article p code {
+  color: #383838;
+  background: rgba(249, 83, 85, 0.1);
+  font-weight: 400;
+  font-size: 0.9em;
 }
 
-/* Change appearance of headers */
-h1, h2, h3, h4, h5 {
-    font-weight: 700;
+d-article a {
+    border-bottom: 2px solid rgba(222, 7, 152, 0.4);
+    text-decoration: none;
 }
 
-/* Use specific font in the body of the text */
-html, body, p {
-    font-weight: 200;
-    /*line-height: 1.3rem; */
-    /*font-style: normal;*/
+.distill-site-header .title {
+    font-weight: 600;
 }
 
 ul > li::marker {
-    font-weight: 700;
-    font-size: 1.125em;
+  color: rgba(255, 114, 0, 0.8);
 }</style>
 <style type="text/css">
 /* base style */
@@ -2378,6 +2379,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   color: var(--hover-color, white);
 }</style>
 <!--/radix_placeholder_distill-->
+  <script src="../../site_libs/header-attrs-2.11/header-attrs.js"></script>
   <script src="../../site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
   <script src="../../site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="../../site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
@@ -2509,7 +2511,9 @@ d-appendix d-footnote-list a.footnote-backlink {
 
 <span class='va'>tabela_medias</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>ano</span>, y <span class='op'>=</span> <span class='va'>media_salario</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_x_continuous</a></span><span class='op'>(</span>breaks <span class='op'>=</span> <span class='fl'>2013</span><span class='op'>:</span><span class='fl'>2019</span><span class='op'>)</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_x_continuous</a></span><span class='op'>(</span>breaks <span class='op'>=</span> <span class='fl'>2013</span><span class='op'>:</span><span class='fl'>2019</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_classic</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='st'>"Ano"</span>, y<span class='op'>=</span><span class='st'>"Média Salarial (R$)"</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="analiseraisreal_files/figure-html5/unnamed-chunk-5-1.png" width="624" /></p>
@@ -2617,433 +2621,43 @@ d-appendix d-footnote-list a.footnote-backlink {
 </div>
 <p>Agora olhando em gráfico:</p>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>tabela_media_uf</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>sigla_uf</span>, y <span class='op'>=</span> <span class='va'>media_salario_uf</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='st'>"Estado"</span>, y<span class='op'>=</span><span class='st'>"Média Salarial (R$)"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_classic</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
 <p><img src="analiseraisreal_files/figure-html5/unnamed-chunk-9-1.png" width="624" /></p>
-<pre><code>List of 93
- $ line                      :List of 6
-  ..$ colour       : chr &quot;black&quot;
-  ..$ size         : num 0.5
-  ..$ linetype     : num 1
-  ..$ lineend      : chr &quot;butt&quot;
-  ..$ arrow        : logi FALSE
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_line&quot; &quot;element&quot;
- $ rect                      :List of 5
-  ..$ fill         : chr &quot;white&quot;
-  ..$ colour       : chr &quot;black&quot;
-  ..$ size         : num 0.5
-  ..$ linetype     : num 1
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_rect&quot; &quot;element&quot;
- $ text                      :List of 11
-  ..$ family       : chr &quot;&quot;
-  ..$ face         : chr &quot;plain&quot;
-  ..$ colour       : chr &quot;black&quot;
-  ..$ size         : num 11
-  ..$ hjust        : num 0.5
-  ..$ vjust        : num 0.5
-  ..$ angle        : num 0
-  ..$ lineheight   : num 0.9
-  ..$ margin       : &#39;margin&#39; num [1:4] 0points 0points 0points 0points
-  .. ..- attr(*, &quot;unit&quot;)= int 8
-  ..$ debug        : logi FALSE
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
- $ title                     : NULL
- $ aspect.ratio              : NULL
- $ axis.title                : NULL
- $ axis.title.x              :List of 11
-  ..$ family       : NULL
-  ..$ face         : NULL
-  ..$ colour       : NULL
-  ..$ size         : NULL
-  ..$ hjust        : NULL
-  ..$ vjust        : num 1
-  ..$ angle        : NULL
-  ..$ lineheight   : NULL
-  ..$ margin       : &#39;margin&#39; num [1:4] 2.75points 0points 0points 0points
-  .. ..- attr(*, &quot;unit&quot;)= int 8
-  ..$ debug        : NULL
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
- $ axis.title.x.top          :List of 11
-  ..$ family       : NULL
-  ..$ face         : NULL
-  ..$ colour       : NULL
-  ..$ size         : NULL
-  ..$ hjust        : NULL
-  ..$ vjust        : num 0
-  ..$ angle        : NULL
-  ..$ lineheight   : NULL
-  ..$ margin       : &#39;margin&#39; num [1:4] 0points 0points 2.75points 0points
-  .. ..- attr(*, &quot;unit&quot;)= int 8
-  ..$ debug        : NULL
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
- $ axis.title.x.bottom       : NULL
- $ axis.title.y              :List of 11
-  ..$ family       : NULL
-  ..$ face         : NULL
-  ..$ colour       : NULL
-  ..$ size         : NULL
-  ..$ hjust        : NULL
-  ..$ vjust        : num 1
-  ..$ angle        : num 90
-  ..$ lineheight   : NULL
-  ..$ margin       : &#39;margin&#39; num [1:4] 0points 2.75points 0points 0points
-  .. ..- attr(*, &quot;unit&quot;)= int 8
-  ..$ debug        : NULL
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
- $ axis.title.y.left         : NULL
- $ axis.title.y.right        :List of 11
-  ..$ family       : NULL
-  ..$ face         : NULL
-  ..$ colour       : NULL
-  ..$ size         : NULL
-  ..$ hjust        : NULL
-  ..$ vjust        : num 0
-  ..$ angle        : num -90
-  ..$ lineheight   : NULL
-  ..$ margin       : &#39;margin&#39; num [1:4] 0points 0points 0points 2.75points
-  .. ..- attr(*, &quot;unit&quot;)= int 8
-  ..$ debug        : NULL
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
- $ axis.text                 :List of 11
-  ..$ family       : NULL
-  ..$ face         : NULL
-  ..$ colour       : chr &quot;grey30&quot;
-  ..$ size         : &#39;rel&#39; num 0.8
-  ..$ hjust        : NULL
-  ..$ vjust        : NULL
-  ..$ angle        : NULL
-  ..$ lineheight   : NULL
-  ..$ margin       : NULL
-  ..$ debug        : NULL
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
- $ axis.text.x               :List of 11
-  ..$ family       : NULL
-  ..$ face         : NULL
-  ..$ colour       : NULL
-  ..$ size         : NULL
-  ..$ hjust        : NULL
-  ..$ vjust        : num 1
-  ..$ angle        : NULL
-  ..$ lineheight   : NULL
-  ..$ margin       : &#39;margin&#39; num [1:4] 2.2points 0points 0points 0points
-  .. ..- attr(*, &quot;unit&quot;)= int 8
-  ..$ debug        : NULL
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
- $ axis.text.x.top           :List of 11
-  ..$ family       : NULL
-  ..$ face         : NULL
-  ..$ colour       : NULL
-  ..$ size         : NULL
-  ..$ hjust        : NULL
-  ..$ vjust        : num 0
-  ..$ angle        : NULL
-  ..$ lineheight   : NULL
-  ..$ margin       : &#39;margin&#39; num [1:4] 0points 0points 2.2points 0points
-  .. ..- attr(*, &quot;unit&quot;)= int 8
-  ..$ debug        : NULL
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
- $ axis.text.x.bottom        : NULL
- $ axis.text.y               :List of 11
-  ..$ family       : NULL
-  ..$ face         : NULL
-  ..$ colour       : NULL
-  ..$ size         : NULL
-  ..$ hjust        : num 1
-  ..$ vjust        : NULL
-  ..$ angle        : NULL
-  ..$ lineheight   : NULL
-  ..$ margin       : &#39;margin&#39; num [1:4] 0points 2.2points 0points 0points
-  .. ..- attr(*, &quot;unit&quot;)= int 8
-  ..$ debug        : NULL
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
- $ axis.text.y.left          : NULL
- $ axis.text.y.right         :List of 11
-  ..$ family       : NULL
-  ..$ face         : NULL
-  ..$ colour       : NULL
-  ..$ size         : NULL
-  ..$ hjust        : num 0
-  ..$ vjust        : NULL
-  ..$ angle        : NULL
-  ..$ lineheight   : NULL
-  ..$ margin       : &#39;margin&#39; num [1:4] 0points 0points 0points 2.2points
-  .. ..- attr(*, &quot;unit&quot;)= int 8
-  ..$ debug        : NULL
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
- $ axis.ticks                :List of 6
-  ..$ colour       : chr &quot;grey20&quot;
-  ..$ size         : NULL
-  ..$ linetype     : NULL
-  ..$ lineend      : NULL
-  ..$ arrow        : logi FALSE
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_line&quot; &quot;element&quot;
- $ axis.ticks.x              : NULL
- $ axis.ticks.x.top          : NULL
- $ axis.ticks.x.bottom       : NULL
- $ axis.ticks.y              : NULL
- $ axis.ticks.y.left         : NULL
- $ axis.ticks.y.right        : NULL
- $ axis.ticks.length         : &#39;simpleUnit&#39; num 2.75points
-  ..- attr(*, &quot;unit&quot;)= int 8
- $ axis.ticks.length.x       : NULL
- $ axis.ticks.length.x.top   : NULL
- $ axis.ticks.length.x.bottom: NULL
- $ axis.ticks.length.y       : NULL
- $ axis.ticks.length.y.left  : NULL
- $ axis.ticks.length.y.right : NULL
- $ axis.line                 :List of 6
-  ..$ colour       : chr &quot;black&quot;
-  ..$ size         : &#39;rel&#39; num 1
-  ..$ linetype     : NULL
-  ..$ lineend      : NULL
-  ..$ arrow        : logi FALSE
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_line&quot; &quot;element&quot;
- $ axis.line.x               : NULL
- $ axis.line.x.top           : NULL
- $ axis.line.x.bottom        : NULL
- $ axis.line.y               : NULL
- $ axis.line.y.left          : NULL
- $ axis.line.y.right         : NULL
- $ legend.background         :List of 5
-  ..$ fill         : NULL
-  ..$ colour       : logi NA
-  ..$ size         : NULL
-  ..$ linetype     : NULL
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_rect&quot; &quot;element&quot;
- $ legend.margin             : &#39;margin&#39; num [1:4] 5.5points 5.5points 5.5points 5.5points
-  ..- attr(*, &quot;unit&quot;)= int 8
- $ legend.spacing            : &#39;simpleUnit&#39; num 11points
-  ..- attr(*, &quot;unit&quot;)= int 8
- $ legend.spacing.x          : NULL
- $ legend.spacing.y          : NULL
- $ legend.key                : list()
-  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_blank&quot; &quot;element&quot;
- $ legend.key.size           : &#39;simpleUnit&#39; num 1.2lines
-  ..- attr(*, &quot;unit&quot;)= int 3
- $ legend.key.height         : NULL
- $ legend.key.width          : NULL
- $ legend.text               :List of 11
-  ..$ family       : NULL
-  ..$ face         : NULL
-  ..$ colour       : NULL
-  ..$ size         : &#39;rel&#39; num 0.8
-  ..$ hjust        : NULL
-  ..$ vjust        : NULL
-  ..$ angle        : NULL
-  ..$ lineheight   : NULL
-  ..$ margin       : NULL
-  ..$ debug        : NULL
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
- $ legend.text.align         : NULL
- $ legend.title              :List of 11
-  ..$ family       : NULL
-  ..$ face         : NULL
-  ..$ colour       : NULL
-  ..$ size         : NULL
-  ..$ hjust        : num 0
-  ..$ vjust        : NULL
-  ..$ angle        : NULL
-  ..$ lineheight   : NULL
-  ..$ margin       : NULL
-  ..$ debug        : NULL
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
- $ legend.title.align        : NULL
- $ legend.position           : chr &quot;right&quot;
- $ legend.direction          : NULL
- $ legend.justification      : chr &quot;center&quot;
- $ legend.box                : NULL
- $ legend.box.just           : NULL
- $ legend.box.margin         : &#39;margin&#39; num [1:4] 0cm 0cm 0cm 0cm
-  ..- attr(*, &quot;unit&quot;)= int 1
- $ legend.box.background     : list()
-  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_blank&quot; &quot;element&quot;
- $ legend.box.spacing        : &#39;simpleUnit&#39; num 11points
-  ..- attr(*, &quot;unit&quot;)= int 8
- $ panel.background          :List of 5
-  ..$ fill         : chr &quot;white&quot;
-  ..$ colour       : logi NA
-  ..$ size         : NULL
-  ..$ linetype     : NULL
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_rect&quot; &quot;element&quot;
- $ panel.border              : list()
-  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_blank&quot; &quot;element&quot;
- $ panel.spacing             : &#39;simpleUnit&#39; num 5.5points
-  ..- attr(*, &quot;unit&quot;)= int 8
- $ panel.spacing.x           : NULL
- $ panel.spacing.y           : NULL
- $ panel.grid                :List of 6
-  ..$ colour       : chr &quot;grey92&quot;
-  ..$ size         : NULL
-  ..$ linetype     : NULL
-  ..$ lineend      : NULL
-  ..$ arrow        : logi FALSE
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_line&quot; &quot;element&quot;
- $ panel.grid.major          : list()
-  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_blank&quot; &quot;element&quot;
- $ panel.grid.minor          : list()
-  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_blank&quot; &quot;element&quot;
- $ panel.grid.major.x        : NULL
- $ panel.grid.major.y        : NULL
- $ panel.grid.minor.x        : NULL
- $ panel.grid.minor.y        : NULL
- $ panel.ontop               : logi FALSE
- $ plot.background           :List of 5
-  ..$ fill         : NULL
-  ..$ colour       : chr &quot;white&quot;
-  ..$ size         : NULL
-  ..$ linetype     : NULL
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_rect&quot; &quot;element&quot;
- $ plot.title                :List of 11
-  ..$ family       : NULL
-  ..$ face         : NULL
-  ..$ colour       : NULL
-  ..$ size         : &#39;rel&#39; num 1.2
-  ..$ hjust        : num 0
-  ..$ vjust        : num 1
-  ..$ angle        : NULL
-  ..$ lineheight   : NULL
-  ..$ margin       : &#39;margin&#39; num [1:4] 0points 0points 5.5points 0points
-  .. ..- attr(*, &quot;unit&quot;)= int 8
-  ..$ debug        : NULL
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
- $ plot.title.position       : chr &quot;panel&quot;
- $ plot.subtitle             :List of 11
-  ..$ family       : NULL
-  ..$ face         : NULL
-  ..$ colour       : NULL
-  ..$ size         : NULL
-  ..$ hjust        : num 0
-  ..$ vjust        : num 1
-  ..$ angle        : NULL
-  ..$ lineheight   : NULL
-  ..$ margin       : &#39;margin&#39; num [1:4] 0points 0points 5.5points 0points
-  .. ..- attr(*, &quot;unit&quot;)= int 8
-  ..$ debug        : NULL
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
- $ plot.caption              :List of 11
-  ..$ family       : NULL
-  ..$ face         : NULL
-  ..$ colour       : NULL
-  ..$ size         : &#39;rel&#39; num 0.8
-  ..$ hjust        : num 1
-  ..$ vjust        : num 1
-  ..$ angle        : NULL
-  ..$ lineheight   : NULL
-  ..$ margin       : &#39;margin&#39; num [1:4] 5.5points 0points 0points 0points
-  .. ..- attr(*, &quot;unit&quot;)= int 8
-  ..$ debug        : NULL
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
- $ plot.caption.position     : chr &quot;panel&quot;
- $ plot.tag                  :List of 11
-  ..$ family       : NULL
-  ..$ face         : NULL
-  ..$ colour       : NULL
-  ..$ size         : &#39;rel&#39; num 1.2
-  ..$ hjust        : num 0.5
-  ..$ vjust        : num 0.5
-  ..$ angle        : NULL
-  ..$ lineheight   : NULL
-  ..$ margin       : NULL
-  ..$ debug        : NULL
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
- $ plot.tag.position         : chr &quot;topleft&quot;
- $ plot.margin               : &#39;margin&#39; num [1:4] 5.5points 5.5points 5.5points 5.5points
-  ..- attr(*, &quot;unit&quot;)= int 8
- $ strip.background          :List of 5
-  ..$ fill         : chr &quot;white&quot;
-  ..$ colour       : chr &quot;black&quot;
-  ..$ size         : &#39;rel&#39; num 2
-  ..$ linetype     : NULL
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_rect&quot; &quot;element&quot;
- $ strip.background.x        : NULL
- $ strip.background.y        : NULL
- $ strip.placement           : chr &quot;inside&quot;
- $ strip.text                :List of 11
-  ..$ family       : NULL
-  ..$ face         : NULL
-  ..$ colour       : chr &quot;grey10&quot;
-  ..$ size         : &#39;rel&#39; num 0.8
-  ..$ hjust        : NULL
-  ..$ vjust        : NULL
-  ..$ angle        : NULL
-  ..$ lineheight   : NULL
-  ..$ margin       : &#39;margin&#39; num [1:4] 4.4points 4.4points 4.4points 4.4points
-  .. ..- attr(*, &quot;unit&quot;)= int 8
-  ..$ debug        : NULL
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
- $ strip.text.x              : NULL
- $ strip.text.y              :List of 11
-  ..$ family       : NULL
-  ..$ face         : NULL
-  ..$ colour       : NULL
-  ..$ size         : NULL
-  ..$ hjust        : NULL
-  ..$ vjust        : NULL
-  ..$ angle        : num -90
-  ..$ lineheight   : NULL
-  ..$ margin       : NULL
-  ..$ debug        : NULL
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
- $ strip.switch.pad.grid     : &#39;simpleUnit&#39; num 2.75points
-  ..- attr(*, &quot;unit&quot;)= int 8
- $ strip.switch.pad.wrap     : &#39;simpleUnit&#39; num 2.75points
-  ..- attr(*, &quot;unit&quot;)= int 8
- $ strip.text.y.left         :List of 11
-  ..$ family       : NULL
-  ..$ face         : NULL
-  ..$ colour       : NULL
-  ..$ size         : NULL
-  ..$ hjust        : NULL
-  ..$ vjust        : NULL
-  ..$ angle        : num 90
-  ..$ lineheight   : NULL
-  ..$ margin       : NULL
-  ..$ debug        : NULL
-  ..$ inherit.blank: logi TRUE
-  ..- attr(*, &quot;class&quot;)= chr [1:2] &quot;element_text&quot; &quot;element&quot;
- - attr(*, &quot;class&quot;)= chr [1:2] &quot;theme&quot; &quot;gg&quot;
- - attr(*, &quot;complete&quot;)= logi TRUE
- - attr(*, &quot;validate&quot;)= logi TRUE</code></pre>
 </div>
 <p>Esse gráfico é legal até colocar na análise explicativa! Df e RJ aparentemente estão muito acima dos demais estados, conforme destaca o gráfico abaixo.</p>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://forcats.tidyverse.org'>forcats</a></span><span class='op'>)</span>
+
+<span class='va'>tabela_media_uf</span> <span class='op'><a href='https://forcats.tidyverse.org/reference/pipe.html'>%&gt;%</a></span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>sigla_uf <span class='op'>=</span> <span class='fu'><a href='https://forcats.tidyverse.org/reference/fct_reorder.html'>fct_reorder</a></span><span class='op'>(</span><span class='va'>sigla_uf</span>, <span class='va'>media_salario_uf</span><span class='op'>)</span><span class='op'>)</span> <span class='op'><a href='https://forcats.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> <span class='co'># vira fator e reordena de acordo com media</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span><span class='op'>(</span><span class='va'>sigla_uf</span><span class='op'>)</span> <span class='op'><a href='https://forcats.tidyverse.org/reference/pipe.html'>%&gt;%</a></span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>y<span class='op'>=</span> <span class='va'>sigla_uf</span>, x <span class='op'>=</span> <span class='va'>media_salario_uf</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>y <span class='op'>=</span> <span class='st'>"Unidade da Federação"</span>,
+       x <span class='op'>=</span> <span class='st'>"Média Salarial (R$)"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_classic</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
 <p><img src="analiseraisreal_files/figure-html5/unnamed-chunk-10-1.png" width="624" /></p>
 </div>
 <p>Será que essa mesma conclusão permanece com a mediana como medida resumo dos salarios?</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>tabela_mediana_uf</span> <span class='op'>&lt;-</span> <span class='va'>tabela_microdados_vinculos</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>sigla_uf</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>mediana <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/median.html'>median</a></span><span class='op'>(</span><span class='va'>valor_remuneracao_media</span><span class='op'>)</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>tabela_mediana_uf</span> <span class='op'>&lt;-</span> <span class='va'>tabela_microdados_vinculos</span> <span class='op'><a href='https://forcats.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>sigla_uf</span><span class='op'>)</span> <span class='op'><a href='https://forcats.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>mediana <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/median.html'>median</a></span><span class='op'>(</span><span class='va'>valor_remuneracao_media</span><span class='op'>)</span><span class='op'>)</span> <span class='op'><a href='https://forcats.tidyverse.org/reference/pipe.html'>%&gt;%</a></span>
   <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>sigla_uf <span class='op'>=</span> <span class='fu'><a href='https://forcats.tidyverse.org/reference/fct_reorder.html'>fct_reorder</a></span><span class='op'>(</span><span class='va'>sigla_uf</span>, <span class='va'>mediana</span><span class='op'>)</span><span class='op'>)</span> 
   
   
-  <span class='va'>tabela_mediana_uf</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span>  
+  <span class='va'>tabela_mediana_uf</span> <span class='op'><a href='https://forcats.tidyverse.org/reference/pipe.html'>%&gt;%</a></span>  
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>mediana</span>, y <span class='op'>=</span> <span class='va'>sigla_uf</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>y <span class='op'>=</span> <span class='st'>"Estado"</span>,
@@ -3070,6 +2684,16 @@ d-appendix d-footnote-list a.footnote-backlink {
 </div>
 <h3 id="os-salários-variam-por-sexo">Os salários variam por sexo?</h3>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>tabela_resumo_sexo</span> <span class='op'>&lt;-</span> <span class='va'>tabela_microdados_vinculos</span> <span class='op'><a href='https://forcats.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>sexo</span><span class='op'>)</span> <span class='op'><a href='https://forcats.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>media <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>valor_remuneracao_media</span><span class='op'>)</span>,
+            mediana <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/median.html'>median</a></span><span class='op'>(</span><span class='va'>valor_remuneracao_media</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='va'>tabela_resumo_sexo</span> <span class='op'><a href='https://forcats.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
 <table>
 <thead>
 <tr class="header">
@@ -3094,6 +2718,16 @@ d-appendix d-footnote-list a.footnote-backlink {
 </div>
 <h3 id="os-salários-variam-por-etnia">Os salários variam por etnia?</h3>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>tabela_resumo_raca</span> <span class='op'>&lt;-</span> <span class='va'>tabela_microdados_vinculos</span> <span class='op'><a href='https://forcats.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>raca_cor</span><span class='op'>)</span> <span class='op'><a href='https://forcats.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>media <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>valor_remuneracao_media</span><span class='op'>)</span>,
+            mediana <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/median.html'>median</a></span><span class='op'>(</span><span class='va'>valor_remuneracao_media</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='va'>tabela_resumo_raca</span> <span class='op'><a href='https://forcats.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
 <table>
 <thead>
 <tr class="header">
@@ -3138,6 +2772,16 @@ d-appendix d-footnote-list a.footnote-backlink {
 </div>
 <h1 id="tabela-de-resumo">Tabela de resumo</h1>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>tabela_resumo_raca_sexo</span> <span class='op'>&lt;-</span><span class='va'>tabela_microdados_vinculos</span> <span class='op'><a href='https://forcats.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>raca_cor</span>, <span class='va'>sexo</span><span class='op'>)</span> <span class='op'><a href='https://forcats.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>media <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>valor_remuneracao_media</span><span class='op'>)</span>,
+            mediana <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/median.html'>median</a></span><span class='op'>(</span><span class='va'>valor_remuneracao_media</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='va'>tabela_resumo_raca_sexo</span> <span class='op'><a href='https://forcats.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
 <table>
 <thead>
 <tr class="header">
@@ -3222,10 +2866,22 @@ d-appendix d-footnote-list a.footnote-backlink {
 </tr>
 </tbody>
 </table>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>tabela_resumo_raca_sexo</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>raca_cor</span>, y <span class='op'>=</span> <span class='va'>media</span>, fill <span class='op'>=</span> <span class='va'>sexo</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span>position <span class='op'>=</span> <span class='st'>"dodge"</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_classic</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"Etnia"</span>, y <span class='op'>=</span> <span class='st'>"Média Salarial R$"</span><span class='op'>)</span>
+</code></pre>
+</div>
 <p><img src="analiseraisreal_files/figure-html5/unnamed-chunk-14-1.png" width="624" /></p>
 </div>
 <p>Regressão linear</p>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>valor_remuneracao_media</span> <span class='op'>~</span> <span class='va'>sexo</span> <span class='op'>+</span> <span class='va'>raca_cor</span>, data <span class='op'>=</span> <span class='va'>tabela_microdados_vinculos</span><span class='op'>)</span>
+</code></pre>
+</div>
 <pre><code>
 Call:
 lm(formula = valor_remuneracao_media ~ sexo + raca_cor, data = tabela_microdados_vinculos)
@@ -3235,6 +2891,134 @@ Coefficients:
      2151.9       -100.0        302.8       -166.1       -453.4  
   raca_cor8    raca_cor9  
      -350.3        910.6  </code></pre>
+</div>
+<p>Qual é a distribuição dos salários de base?</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
+
+<span class='va'>tabela_microdados_vinculos</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>valor_remuneracao_media</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+           <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_histogram.html'>geom_histogram</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_wrap.html'>facet_wrap</a></span><span class='op'>(</span><span class='op'>~</span><span class='va'>cbo_2002</span>, scales <span class='op'>=</span> <span class='st'>"free"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<img src="analiseraisreal_files/figure-html5/unnamed-chunk-16-1.png" width="624" />
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>tabela_microdados_vinculos</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>cbo_2002</span> <span class='op'>==</span> <span class='st'>"131120"</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>valor_remuneracao_media</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+           <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_histogram.html'>geom_histogram</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_wrap.html'>facet_wrap</a></span><span class='op'>(</span><span class='op'>~</span><span class='va'>cbo_2002</span>, scales <span class='op'>=</span> <span class='st'>"free"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<img src="analiseraisreal_files/figure-html5/unnamed-chunk-16-2.png" width="624" />
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>nosso_modelo</span> <span class='op'>&lt;-</span> <span class='va'>tabela_microdados_vinculos</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>cbo_2002</span> <span class='op'>==</span> <span class='st'>"131120"</span>, <span class='va'>valor_remuneracao_media</span> <span class='op'>&gt;</span> <span class='fl'>0</span>, <span class='va'>grau_instrucao_apos_2005</span> <span class='op'>!=</span> <span class='st'>"1"</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>logremuneracao <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>valor_remuneracao_media</span><span class='op'>)</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>logremuneracao</span> <span class='op'>~</span> <span class='va'>idade</span> <span class='op'>+</span> 
+       <span class='va'>grau_instrucao_apos_2005</span> <span class='op'>+</span> 
+       <span class='va'>sexo</span><span class='op'>*</span><span class='va'>raca_cor</span> <span class='op'>+</span> 
+       <span class='va'>indicador_portador_deficiencia</span> <span class='op'>+</span> 
+       <span class='va'>tamanho_estabelecimento</span> <span class='op'>+</span>
+       <span class='va'>quantidade_horas_contratadas</span>, 
+     data <span class='op'>=</span> <span class='va'>.</span><span class='op'>)</span>
+  
+
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>nosso_modelo</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>
+Call:
+lm(formula = logremuneracao ~ idade + grau_instrucao_apos_2005 + 
+    sexo * raca_cor + indicador_portador_deficiencia + tamanho_estabelecimento + 
+    quantidade_horas_contratadas, data = .)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-1.31161 -0.33940 -0.01998  0.31709  2.24941 
+
+Coefficients:
+                                Estimate Std. Error t value Pr(&gt;|t|)
+(Intercept)                     7.075618   0.425212  16.640  &lt; 2e-16
+idade                           0.011350   0.001551   7.319 4.49e-13
+grau_instrucao_apos_200511     -0.360232   0.246266  -1.463 0.143782
+grau_instrucao_apos_20052      -0.971997   0.241277  -4.029 5.95e-05
+grau_instrucao_apos_20053      -0.954817   0.218106  -4.378 1.30e-05
+grau_instrucao_apos_20054      -0.922841   0.247633  -3.727 0.000203
+grau_instrucao_apos_20055      -0.852175   0.190607  -4.471 8.50e-06
+grau_instrucao_apos_20056      -0.835797   0.207087  -4.036 5.77e-05
+grau_instrucao_apos_20057      -0.633322   0.178423  -3.550 0.000400
+grau_instrucao_apos_20058      -0.520937   0.186326  -2.796 0.005256
+grau_instrucao_apos_20059      -0.151148   0.175783  -0.860 0.390034
+sexo2                          -0.114087   0.430100  -0.265 0.790855
+raca_cor2                       0.116389   0.369319   0.315 0.752704
+raca_cor4                      -0.021524   0.417757  -0.052 0.958916
+raca_cor6                      -0.422268   0.413753  -1.021 0.307652
+raca_cor8                       0.043029   0.367294   0.117 0.906760
+raca_cor9                      -0.242438   0.365039  -0.664 0.506721
+indicador_portador_deficiencia  0.765616   0.517468   1.480 0.139249
+tamanho_estabelecimento10      -0.024523   0.132165  -0.186 0.852831
+tamanho_estabelecimento2       -0.338548   0.127415  -2.657 0.007984
+tamanho_estabelecimento3       -0.320816   0.125852  -2.549 0.010918
+tamanho_estabelecimento4       -0.199969   0.122350  -1.634 0.102428
+tamanho_estabelecimento5       -0.127856   0.120921  -1.057 0.290557
+tamanho_estabelecimento6       -0.037436   0.128117  -0.292 0.770179
+tamanho_estabelecimento7       -0.130047   0.123498  -1.053 0.292534
+tamanho_estabelecimento8       -0.310580   0.125763  -2.470 0.013661
+tamanho_estabelecimento9       -0.125531   0.132102  -0.950 0.342168
+quantidade_horas_contratadas    0.021830   0.002683   8.136 9.82e-16
+sexo2:raca_cor2                -0.007673   0.436621  -0.018 0.985982
+sexo2:raca_cor4                -0.007886   0.499264  -0.016 0.987401
+sexo2:raca_cor6                -0.170749   0.513602  -0.332 0.739603
+sexo2:raca_cor8                 0.062187   0.434663   0.143 0.886258
+sexo2:raca_cor9                -0.042113   0.432367  -0.097 0.922423
+                                  
+(Intercept)                    ***
+idade                          ***
+grau_instrucao_apos_200511        
+grau_instrucao_apos_20052      ***
+grau_instrucao_apos_20053      ***
+grau_instrucao_apos_20054      ***
+grau_instrucao_apos_20055      ***
+grau_instrucao_apos_20056      ***
+grau_instrucao_apos_20057      ***
+grau_instrucao_apos_20058      ** 
+grau_instrucao_apos_20059         
+sexo2                             
+raca_cor2                         
+raca_cor4                         
+raca_cor6                         
+raca_cor8                         
+raca_cor9                         
+indicador_portador_deficiencia    
+tamanho_estabelecimento10         
+tamanho_estabelecimento2       ** 
+tamanho_estabelecimento3       *  
+tamanho_estabelecimento4          
+tamanho_estabelecimento5          
+tamanho_estabelecimento6          
+tamanho_estabelecimento7          
+tamanho_estabelecimento8       *  
+tamanho_estabelecimento9          
+quantidade_horas_contratadas   ***
+sexo2:raca_cor2                   
+sexo2:raca_cor4                   
+sexo2:raca_cor6                   
+sexo2:raca_cor8                   
+sexo2:raca_cor9                   
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 0.5101 on 1241 degrees of freedom
+Multiple R-squared:  0.4176,    Adjusted R-squared:  0.4025 
+F-statistic:  27.8 on 32 and 1241 DF,  p-value: &lt; 2.2e-16</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>nosso_modelo</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="analiseraisreal_files/figure-html5/unnamed-chunk-16-3.png" width="624" /><img src="analiseraisreal_files/figure-html5/unnamed-chunk-16-4.png" width="624" /><img src="analiseraisreal_files/figure-html5/unnamed-chunk-16-5.png" width="624" /><img src="analiseraisreal_files/figure-html5/unnamed-chunk-16-6.png" width="624" /></p>
 </div>
 <h3 id="os-salários-variam-por-idade">Os salários variam por idade?</h3>
 <div class="layout-chunk" data-layout="l-body">
@@ -3250,7 +3034,7 @@ Coefficients:
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_classic</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="analiseraisreal_files/figure-html5/unnamed-chunk-16-1.png" width="624" /></p>
+<p><img src="analiseraisreal_files/figure-html5/unnamed-chunk-17-1.png" width="624" /></p>
 </div>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->

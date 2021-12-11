@@ -160,7 +160,7 @@ knitr::kable(tabela_media_uf)
 
 Agora olhando em gráfico:
 
-```{r}
+```{r echo=TRUE, message=FALSE, warning=FALSE}
 tabela_media_uf %>% 
   ggplot(aes(x = sigla_uf, y = media_salario_uf)) +
   geom_col() +
@@ -170,7 +170,7 @@ tabela_media_uf %>%
 ```
 Esse gráfico é legal até colocar na análise explicativa! Df e RJ aparentemente estão muito acima dos demais estados, conforme destaca o gráfico abaixo.
 
-```{r}
+```{r echo=TRUE, message=FALSE, warning=FALSE}
 
 
 library(forcats)
@@ -210,7 +210,7 @@ tabela_media_uf
 
 ### Os salários variam por sexo?
 
-```{r}
+```{r echo=TRUE, message=FALSE, warning=FALSE}
 
 tabela_resumo_sexo <- tabela_microdados_vinculos %>% 
   group_by(sexo) %>% 
@@ -226,7 +226,7 @@ tabela_resumo_sexo %>%
 
 ### Os salários variam por etnia?
 
-```{r}
+```{r echo=TRUE, message=FALSE, warning=FALSE}
 tabela_resumo_raca <- tabela_microdados_vinculos %>% 
   group_by(raca_cor) %>% 
   summarise(media = mean(valor_remuneracao_media),
@@ -239,7 +239,7 @@ tabela_resumo_raca %>%
 
 # Tabela de resumo
 
-```{r}
+```{r echo=TRUE, message=FALSE, warning=FALSE}
 tabela_resumo_raca_sexo <-tabela_microdados_vinculos %>% 
   group_by(raca_cor, sexo) %>% 
   summarise(media = mean(valor_remuneracao_media),
@@ -259,11 +259,48 @@ ggplot(tabela_resumo_raca_sexo) +
 
 Regressão linear
 
-```{r}
+```{r echo=TRUE, message=FALSE, warning=FALSE}
 
 lm(valor_remuneracao_media ~ sexo + raca_cor, data = tabela_microdados_vinculos)
 
 ```
+
+Qual é a distribuição dos salários de base?
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+library(tidyverse)
+
+tabela_microdados_vinculos %>% 
+  ggplot(aes(x = log(valor_remuneracao_media))) +
+           geom_histogram() +
+  facet_wrap(~cbo_2002, scales = "free")
+
+tabela_microdados_vinculos %>% 
+  filter(cbo_2002 == "131120") %>% 
+  ggplot(aes(x = log(valor_remuneracao_media))) +
+           geom_histogram() +
+  facet_wrap(~cbo_2002, scales = "free")
+
+
+nosso_modelo <- tabela_microdados_vinculos %>% 
+  filter(cbo_2002 == "131120", valor_remuneracao_media > 0, grau_instrucao_apos_2005 != "1") %>% 
+  mutate(logremuneracao = log(valor_remuneracao_media)) %>% 
+  lm(logremuneracao ~ idade + 
+       grau_instrucao_apos_2005 + 
+       sexo*raca_cor + 
+       indicador_portador_deficiencia + 
+       tamanho_estabelecimento +
+       quantidade_horas_contratadas, 
+     data = .)
+  
+
+summary(nosso_modelo)
+plot(nosso_modelo)
+
+```
+
+
+
 
 
 ### Os salários variam por idade?
